@@ -1,0 +1,52 @@
+﻿@model IEnumerable<PetMeGenNHibernate.EN.PetMe.UsuarioEN>
+
+@{
+    ViewBag.Title = "Usuarios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="text-center">
+    <h2>Menu administracion (usuarios)</h2>
+
+    @Html.ActionLink("Crear nuevo usuario", "Create","",new {@class="btn btn-primary" })
+</div>
+    
+
+
+<div class="container h-100 d-flex flex-wrap">
+
+
+@foreach (var item in Model)
+{
+    <div class="col-md-6">
+        <div class="jumbotron">
+            
+                <h2 class="text-center">@Html.DisplayFor(model => item.Nick)</h2>
+                <h3>
+                    
+                </h3>
+                <div class="row">
+                    <div class="col-md-4">
+                        
+                        @Html.ActionLink("Editar", "Edit", new { id = item.Nick },new { @class="btn btn-warning" })
+                    </div>
+                    <div class="col-md-4">
+                       
+                        @Html.ActionLink("Detalles", "Details", new { id = item.Nick }, new { @class = "btn btn-primary" })
+                    </div>
+                    <div class="col-md-4">
+                      
+                        @Html.ActionLink("Eliminar", "Delete", new { id = item.Nick }, new { @class = "btn btn-danger" })
+                    </div>
+                </div>
+                
+
+            
+        </div>
+    </div>
+    
+}
+
+</div>
